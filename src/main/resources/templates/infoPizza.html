@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Détail de la pizza</title>
+<link rel="stylesheet" th:href="@{/css/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/infoPizza.css}"/>
+</head>
+<body>
+	<header th:insert="header.html"> </header>
+
+	<h1>Détail de la pizza</h1>
+
+	<div id="conteneur">		
+		<div id="intitule">
+				<p th:text="${ piz.libelle }"></p>
+				<p th:text="${ piz.prix } + '€'"></p>
+		</div>
+		<div id="photo">				
+				<img id="imgUti" th:src="@{ ${ piz.url_image }}"/>	
+		</div>	
+		<div id="modif">
+			<ul>
+				<li><a th:href="@{'../modPizza/' + ${ piz.id }}"><img class="icon" th:src="@{/images/icone_mod2.jpg}"/></a></li>
+				<li><a th:href="@{'../supPizza/' + ${ piz.id }}"><img class="icon" th:src="@{/images/icone_sup.jpg}"/></a></li>
+			</ul>				
+		</div>	
+		<div id="infos">	
+				<p th:text="${ piz.reference }"></p>							
+				<p th:text="${ piz.description }"></p>	
+				<br/><br/><br/><br/><br/>
+				<a id="lienRetour" th:href="@{../listPizza}"><img class="icon2" th:src="@{/images/iconRet.jpg}"/></a>	
+		</div>	
+						
+	</div>	
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Ajouter une pizza</title>
+<link rel="stylesheet" th:href="@{/css/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/newPizza.css}"/>
+</head>
+<body>
+
+	<header th:insert="header.html"> </header>
+	<br/>
+	<h1>Ajouter un pizza</h1>
+	<br/><br/>
+	<form th:action="@{/creerPizza}" method="POST" class="color" th:object="${piz}">
+	    <fieldset>
+	        <legend>Pizza</legend>
+	        
+	        <input type="hidden"  id="id" name="id" class="dim_block2" th:field="*{id}"/>
+	        <label>Libéllé :</label>
+	        <br/>
+	        <input type="text" id="libelle" name="libelle" class="dim_block2" value="nom" th:field="*{libelle}"/>
+	        <br/>
+	        <br/>
+	        <label>Référence :</label>
+	        <br/>
+	        <input type="text" id="reference" name="reference" class="dim_block2" value="prenom" th:field="*{reference}"/>
+	        <br/>
+	        <br/>
+	        <label>Prix :</label>
+	        <br>
+	        <input type="text" id="prix" name="prix" class="dim_block2" value="" th:field="*{prix}"/>
+	        <br/>
+	        <br/>
+	        <label>Description :</label>
+	        <br/>
+	        <input type="text" id="description" name="description" class="dim_block2" th:field="*{description}"/>
+	        <br/>
+	        <br/>
+	        <label>Numero :</label>
+	        <br/>
+	        <input type="text" id="numero" name="numero" class="dim_block2" th:field="*{numero}"/>
+	         <input type="hidden" id="url_image" name="url_image" class="dim_block2" value="https://www.atelierdeschefs.com/media/recette-e30299-pizza-pepperoni-tomate-mozza.jpg"/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        
+	    </fieldset>
+    	<br/>
+	    <input type="submit" value="Envoyer" class="dim_block4" id="colorBlock"/>
+	    <input type="reset" value="Annuler" class="dim_block4" id="colorBlock"/>
+	    
+	</form>
+	<div id="#lienRetour">
+		<a id="lienRetour" th:href="@{../listPizza}"><img class="icon2" th:src="@{/images/iconRet.jpg}"/></a>	
+	</div>
+</body>
+</html>

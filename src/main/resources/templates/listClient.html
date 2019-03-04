@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Liste des clients</title>
+<link rel="stylesheet" th:href="@{/css/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/listClient.css}"/>
+</head>
+<body>
+	
+	<header th:insert="header.html"> </header>
+
+	<h1>Liste des clients</h1>
+	
+	<div id="action">
+		<ul>
+			<li class="action"><a th:href="@{/newClient}"><img class="icon" th:src="@{/images/newUti.png}"/></a></li>
+			<li class="action"><a th:href="@{/triClientAsc}"><img class="icon" th:src="@{/images/triAsc.png}"/></a></li>
+			<li class="action"><a th:href="@{/triClientDesc}"><img class="icon" th:src="@{/images/triDesc.png}"/></a></li>
+		</ul>	
+	</div>
+
+	<div id="conteneur" th:each="cli : ${ listClient }">
+		<div class="blockPhoto">
+			<a th:href="@{'/infoClient/' + ${cli.id}}"><img th:src="@{ /images/uti.png }"/></a>
+			<div th:text="${ cli.nom }"></div><div th:text="${ cli.prenom }"></div>		
+		</div>
+	</div>
+	
+</body>
+</html>

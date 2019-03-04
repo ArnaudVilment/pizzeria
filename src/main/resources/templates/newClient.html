@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Ajouter un client</title>
+<link rel="stylesheet" th:href="@{/css/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/newClient.css}"/>
+</head>
+<body>
+	
+	<header th:insert="header.html"> </header>
+	<br/>	
+	<h1>Ajouter un client</h1>
+	<br/><br/>
+	<form th:action="@{/creerClient}" method="POST" class="color" th:object="${cli}">
+	    <fieldset>
+	        <legend>Pizza</legend>
+	        
+	        <input type="hidden"  id="id" name="id" class="dim_block2" th:field="*{id}"/>
+	        <label>Num Client :</label>
+	        <br/>
+	        <input type="text" id="num_client" name="num_client" class="dim_block2" th:field="*{num_client}"/>
+	        <label>Nom :</label>
+	        <br/>
+	        <input type="text" id="nom" name="nom" class="dim_block2"  th:field="*{nom}"/>
+	        <br/>
+	        <br/>
+	        <label>Prénom :</label>
+	        <br/>
+	        <input type="text" id="prenom" name="prenom" class="dim_block2"  th:field="*{prenom}"/>
+	        <br/>
+	        <br/>
+	        <label>Adresse :</label>
+	        <br>
+	        <input type="text" id="adresse" name="adresse" class="dim_block2" value="" th:field="*{adresse}"/>
+	        <br/>
+	        <br/>
+	        <label>Tél fixe :</label>
+	        <br/>
+	        <input type="text" id="tel_fixe" name="tel_fixe" class="dim_block2" th:field="*{tel_fixe}"/>
+	        <br/>
+	        <br/>
+	        <label>Tél port :</label>
+	        <br/>
+	        <input type="text" id="tel_portable" name="tel_portable" class="dim_block2" th:field="*{tel_portable}"/>
+	        <label>Date naissance :</label>
+	        <br/>
+	        <input type="date" id="date_naissance" name="date_naissance" class="dim_block2" th:field="*{date_naissance}"/>
+	        <label>Email :</label>
+	        <br/>
+	        <input type="text" id="email" name="email" class="dim_block2" th:field="*{email}"/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        
+	    </fieldset>
+    	<br/>
+	    <input type="submit" value="Envoyer" class="dim_block4" id="colorBlock"/>
+	    <input type="reset" value="Annuler" class="dim_block4" id="colorBlock"/>
+	    
+	</form>
+	<div id="#lienRetour">
+		<a id="lienRetour" th:href="@{../listClient}"><img class="icon2" th:src="@{/images/iconRet.jpg}"/></a>	
+	</div>
+</body>
+</html>

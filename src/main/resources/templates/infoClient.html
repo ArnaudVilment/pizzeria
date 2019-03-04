@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Détail du client</title>
+<link rel="stylesheet" th:href="@{/css/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/infoClient.css}"/>
+</head>
+<body>
+	<header th:insert="header.html"> </header>
+
+	<h1>Détail du Client</h1>
+
+	<div id="conteneur">		
+		<div id="intitule">
+				<p th:text="${ cli.nom }"></p>
+				<p th:text="${ cli.prenom }"></p>
+		</div>
+		<div id="photo">				
+				<img id="imgUti" th:src="@{ /images/uti.png }"/>	
+		</div>	
+		<div id="modif">
+			<ul>
+				<li><a th:href="@{'../modClient/' + ${ cli.id }}"><img class="icon" th:src="@{/images/icone_mod2.jpg}"/></a></li>
+				<li><a th:href="@{'../supClient/' + ${ cli.id }}"><img class="icon" th:src="@{/images/icone_sup.jpg}"/></a></li>
+			</ul>				
+		</div>	
+		<div id="infos">	
+				<p th:text="${ cli.num_client }"></p>							
+				<p th:text="${ cli.adresse }"></p>	
+				<p th:text="${ cli.tel_fixe }"></p>	
+				<p th:text="${ cli.tel_portable }"></p>	
+				<p th:text="${ cli.date_naissance }"></p>	
+				<p th:text="${ cli.email }"></p>	
+				<br/><br/><br/><br/><br/>
+				<a id="lienRetour" th:href="@{../listClient}"><img class="icon2" th:src="@{/images/iconRet.jpg}"/></a>	
+		</div>	
+						
+	</div>	
+</body>
+</html>

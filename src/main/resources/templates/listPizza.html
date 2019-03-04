@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Liste des pizzas</title>
+<link rel="stylesheet" th:href="@{/css/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/listPizza.css}"/>
+</head>
+<body>
+
+	<header th:insert="header.html"> </header>
+
+	<h1>Liste des pizzas</h1>
+	
+	<div id="action">
+		<ul>
+			<li class="action"><a class="lienAction" th:href="@{/newPizza}"><img class="icon" th:src="@{/images/newUti.png}"/></a></li>
+			<li class="action"><a class="lienAction" th:href="@{/triPizzaAsc}"><img class="icon" th:src="@{/images/triAsc.png}"/></a></li>
+			<li class="action"><a class="lienAction" th:href="@{/triPizzaDesc}"><img class="icon" th:src="@{/images/triDesc.png}"/></a></li>
+		</ul>	
+	</div>
+
+	<div id="conteneur" th:each="piz : ${ listPizza }">
+		<div class="blockPhoto">
+			<a th:href="@{'/infoPizza/' + ${piz.id}}"><img th:src="@{ ${ piz.url_image }}"/></a>
+			<div th:text="${ piz.libelle }"></div><div th:text="${ piz.description }"></div>		
+		</div>
+	</div>
+	
+</body>
+</html>
